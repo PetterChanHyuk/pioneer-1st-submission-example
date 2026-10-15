@@ -1,0 +1,165 @@
+{
+  "version": {
+    "id": "pioneer-w2-k200-ema-20261015",
+    "groupId": "pioneer-w2-k200-ema-20261015",
+    "name": "Pioneer_2주차_코스피200_EMA교차",
+    "version": "v1",
+    "status": "초안",
+    "market": "domestic",
+    "productCode": "KOSPI",
+    "productKind": "futures",
+    "contractCode": "",
+    "instrumentFallback": "코스피200 선물",
+    "role": "kospiFutures",
+    "account": "앱 시뮬레이션 · 국내",
+    "record": "앱 시뮬레이션",
+    "currency": "KRW",
+    "orderQty": 1,
+    "marginBudget": 100000000,
+    "dailyLoss": 500000,
+    "seed": "empty",
+    "tags": [
+      "pioneer",
+      "2주차"
+    ],
+    "summary": "1분봉 마감에서 EMA(5)가 EMA(20)을 상향 교차하면 매수 진입, 하향 교차하면 매도 진입 — 참으로 바뀌는 순간에 시장가로 냅니다. 반대 교차·손절 8틱·익절 16틱으로 청산하고, 세션 끝 10분 전에 전량 정리합니다. 한 번에 1계약, 하루 500,000원 잃으면 멈춥니다."
+  },
+  "draft": {
+    "baseBar": "1분봉",
+    "evalMode": "마감",
+    "memo": "Pioneer 1기 2주차 샘플 — 코스피200 선물 1분봉에서 EMA(5)가 EMA(20)을 상향 교차하면 매수, 하향 교차하면 매도 진입. 반대 교차·손절 8틱·익절 16틱·세션 끝 10분 전 정리로 청산. 앱 시뮬레이션(종이 체결)으로만 검증합니다.",
+    "aux": {
+      "session": "국내 주간",
+      "orderType": "시장가",
+      "fillCond": "FAS",
+      "priceBasis": "신호가",
+      "buyPriceBasis": "",
+      "sellPriceBasis": "",
+      "stopBasis": "",
+      "perOrder": "1",
+      "maxHold": "1",
+      "addWhileOpen": false,
+      "stopTicks": "8",
+      "stopUnit": "tick",
+      "takeTicks": "16",
+      "takeUnit": "tick",
+      "trailTicks": "",
+      "trailUnit": "tick",
+      "sessionEndFlat": true,
+      "sessionEndMinutes": "10",
+      "entryStart": "",
+      "entryEnd": "",
+      "reentryWaitBars": "0",
+      "maxEntriesPerDay": "",
+      "lossStreak": "",
+      "dailyLoss": "500000",
+      "marginBudget": "100000000"
+    },
+    "rules": {
+      "buyEntry": {
+        "on": true,
+        "resetBars": "",
+        "steps": [
+          {
+            "id": "s1",
+            "join": "all",
+            "withinBars": 0,
+            "conds": [
+              {
+                "id": "c1",
+                "left": "ema",
+                "leftParams": {
+                  "period": 5
+                },
+                "op": "crossUp",
+                "right": "ema",
+                "rightKind": "operand",
+                "rightParams": {
+                  "period": 20
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "sellEntry": {
+        "on": true,
+        "resetBars": "",
+        "steps": [
+          {
+            "id": "s2",
+            "join": "all",
+            "withinBars": 0,
+            "conds": [
+              {
+                "id": "c2",
+                "left": "ema",
+                "leftParams": {
+                  "period": 5
+                },
+                "op": "crossDown",
+                "right": "ema",
+                "rightKind": "operand",
+                "rightParams": {
+                  "period": 20
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "buyExit": {
+        "on": true,
+        "resetBars": "",
+        "steps": [
+          {
+            "id": "s3",
+            "join": "all",
+            "withinBars": 0,
+            "conds": [
+              {
+                "id": "c3",
+                "left": "ema",
+                "leftParams": {
+                  "period": 5
+                },
+                "op": "crossDown",
+                "right": "ema",
+                "rightKind": "operand",
+                "rightParams": {
+                  "period": 20
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "sellExit": {
+        "on": true,
+        "resetBars": "",
+        "steps": [
+          {
+            "id": "s4",
+            "join": "all",
+            "withinBars": 0,
+            "conds": [
+              {
+                "id": "c4",
+                "left": "ema",
+                "leftParams": {
+                  "period": 5
+                },
+                "op": "crossUp",
+                "right": "ema",
+                "rightKind": "operand",
+                "rightParams": {
+                  "period": 20
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
