@@ -1,0 +1,871 @@
+{
+  "run": {
+    "id": "run-pioneer-w2-day-20261015",
+    "version": "pioneer-w2-k200-ema-20261015",
+    "code": "A016C000",
+    "session": "domestic-day",
+    "sessionLabel": "국내 주간",
+    "market": "domestic",
+    "mode": "paper",
+    "approvedAt": null,
+    "state": "ended",
+    "stateLabel": "종료",
+    "feed": "live",
+    "feedAt": 1792044212447,
+    "qty": 1,
+    "cash": 100000000.0,
+    "margin": 50939587.5,
+    "position": 0,
+    "side": null,
+    "avgPrice": null,
+    "pl": -37500.00000002273,
+    "realizedPl": -37500.00000002273,
+    "openPl": 0.0,
+    "dayPl": -37500.00000002273,
+    "lossStreak": 0,
+    "fee": 0.0,
+    "environment": null,
+    "budgetUnchecked": false,
+    "multiplierWhy": null,
+    "currency": "KRW",
+    "evalMode": "마감",
+    "lastPrice": 854.55,
+    "tickSize": 0.05,
+    "multiplier": 250000.0,
+    "daysLeft": 57,
+    "expiring": false,
+    "initialMarginRate": "21.75%",
+    "maintenanceMarginRate": "14.50%",
+    "maintenanceMargin": null,
+    "model": "paper-v2",
+    "bars": 1172,
+    "warmup": 40,
+    "pending": 0,
+    "openEntry": 0,
+    "perContract": 50939587.5,
+    "perContractBasis": "margin",
+    "unsentToday": 0,
+    "signalCount": 3,
+    "fillCount": 6,
+    "lastSignalAt": 1792040532811
+  },
+  "conditions": {
+    "barTime": 1792044120000,
+    "state": "ready",
+    "need": 40,
+    "have": 1172,
+    "rules": [
+      {
+        "rule": "buyEntry",
+        "judged": true,
+        "waitingStep": 1,
+        "steps": 1,
+        "barsLeft": null,
+        "resetLeft": null,
+        "fired": false,
+        "stepsDetail": [
+          {
+            "join": "all",
+            "withinBars": 0,
+            "conds": [
+              {
+                "left": "ema",
+                "op": "crossUp",
+                "right": "ema",
+                "rightKind": "operand",
+                "leftParams": {
+                  "period": 5
+                },
+                "rightParams": {
+                  "period": 20
+                },
+                "leftValue": 851.2229385752339,
+                "rightValue": 852.1172079491813,
+                "now": false,
+                "before": false
+              }
+            ],
+            "stepNow": false,
+            "stepBefore": false,
+            "beforeUnknown": false
+          }
+        ]
+      },
+      {
+        "rule": "sellEntry",
+        "judged": true,
+        "waitingStep": 1,
+        "steps": 1,
+        "barsLeft": null,
+        "resetLeft": null,
+        "fired": false,
+        "stepsDetail": [
+          {
+            "join": "all",
+            "withinBars": 0,
+            "conds": [
+              {
+                "left": "ema",
+                "op": "crossDown",
+                "right": "ema",
+                "rightKind": "operand",
+                "leftParams": {
+                  "period": 5
+                },
+                "rightParams": {
+                  "period": 20
+                },
+                "leftValue": 851.2229385752339,
+                "rightValue": 852.1172079491813,
+                "now": false,
+                "before": false
+              }
+            ],
+            "stepNow": false,
+            "stepBefore": false,
+            "beforeUnknown": false
+          }
+        ]
+      },
+      {
+        "rule": "buyExit",
+        "judged": false,
+        "waitingStep": 1,
+        "steps": 1,
+        "barsLeft": null,
+        "resetLeft": null,
+        "fired": false,
+        "stepsDetail": [
+          {
+            "join": "all",
+            "withinBars": 0,
+            "conds": [
+              {
+                "left": "ema",
+                "op": "crossDown",
+                "right": "ema",
+                "rightKind": "operand",
+                "leftParams": {
+                  "period": 5
+                },
+                "rightParams": {
+                  "period": 20
+                },
+                "leftValue": 851.2229385752339,
+                "rightValue": 852.1172079491813,
+                "now": false,
+                "before": false
+              }
+            ],
+            "stepNow": false,
+            "stepBefore": false,
+            "beforeUnknown": false
+          }
+        ]
+      },
+      {
+        "rule": "sellExit",
+        "judged": false,
+        "waitingStep": 1,
+        "steps": 1,
+        "barsLeft": null,
+        "resetLeft": null,
+        "fired": false,
+        "stepsDetail": [
+          {
+            "join": "all",
+            "withinBars": 0,
+            "conds": [
+              {
+                "left": "ema",
+                "op": "crossUp",
+                "right": "ema",
+                "rightKind": "operand",
+                "leftParams": {
+                  "period": 5
+                },
+                "rightParams": {
+                  "period": 20
+                },
+                "leftValue": 851.2229385752339,
+                "rightValue": 852.1172079491813,
+                "now": false,
+                "before": false
+              }
+            ],
+            "stepNow": false,
+            "stepBefore": false,
+            "beforeUnknown": false
+          }
+        ]
+      }
+    ]
+  },
+  "fills": [
+    {
+      "orderId": "run-pioneer-w2-day-20261015-1",
+      "execNo": "run-pioneer-w2-day-20261015-1#1",
+      "time": 1792039873128,
+      "price": 869.9,
+      "quantity": 1,
+      "side": "sell",
+      "runId": "run-pioneer-w2-day-20261015",
+      "intent": "entry",
+      "reason": "signal",
+      "virtual": true,
+      "snapshot": {
+        "barTime": 1792039800000,
+        "values": {
+          "close": 868.1,
+          "ema(20)": 869.4650762544142,
+          "ema(5)": 869.3144150477591
+        }
+      },
+      "fee": 0.0,
+      "feeExchange": 0.0,
+      "feeClearing": null,
+      "model": "paper-v2",
+      "realized": null
+    },
+    {
+      "orderId": "run-pioneer-w2-day-20261015-2",
+      "execNo": "run-pioneer-w2-day-20261015-2#1",
+      "time": 1792039874393,
+      "price": 870.35,
+      "quantity": 1,
+      "side": "buy",
+      "runId": "run-pioneer-w2-day-20261015",
+      "intent": "exit",
+      "reason": "stop",
+      "virtual": true,
+      "snapshot": {
+        "barTime": 1792039800000,
+        "values": {
+          "close": 868.1,
+          "ema(20)": 869.4650762544142,
+          "ema(5)": 869.3144150477591
+        }
+      },
+      "fee": 0.0,
+      "feeExchange": 0.0,
+      "feeClearing": null,
+      "model": "paper-v2",
+      "realized": -112500.00000001137
+    },
+    {
+      "orderId": "run-pioneer-w2-day-20261015-3",
+      "execNo": "run-pioneer-w2-day-20261015-3#1",
+      "time": 1792039934179,
+      "price": 871.45,
+      "quantity": 1,
+      "side": "buy",
+      "runId": "run-pioneer-w2-day-20261015",
+      "intent": "entry",
+      "reason": "signal",
+      "virtual": true,
+      "snapshot": {
+        "barTime": 1792039860000,
+        "values": {
+          "close": 871.15,
+          "ema(20)": 869.6255451825651,
+          "ema(5)": 869.9262766985061
+        }
+      },
+      "fee": 0.0,
+      "feeExchange": 0.0,
+      "feeClearing": null,
+      "model": "paper-v2",
+      "realized": null
+    },
+    {
+      "orderId": "run-pioneer-w2-day-20261015-4",
+      "execNo": "run-pioneer-w2-day-20261015-4#1",
+      "time": 1792039995568,
+      "price": 870.95,
+      "quantity": 1,
+      "side": "sell",
+      "runId": "run-pioneer-w2-day-20261015",
+      "intent": "exit",
+      "reason": "stop",
+      "virtual": true,
+      "snapshot": {
+        "barTime": 1792039920000,
+        "values": {
+          "close": 871.65,
+          "ema(20)": 869.8183504032733,
+          "ema(5)": 870.5008511323374
+        }
+      },
+      "fee": 0.0,
+      "feeExchange": 0.0,
+      "feeClearing": null,
+      "model": "paper-v2",
+      "realized": -124999.99999999999
+    },
+    {
+      "orderId": "run-pioneer-w2-day-20261015-5",
+      "execNo": "run-pioneer-w2-day-20261015-5#1",
+      "time": 1792040533233,
+      "price": 870.15,
+      "quantity": 1,
+      "side": "sell",
+      "runId": "run-pioneer-w2-day-20261015",
+      "intent": "entry",
+      "reason": "signal",
+      "virtual": true,
+      "snapshot": {
+        "barTime": 1792040460000,
+        "values": {
+          "close": 870.3,
+          "ema(20)": 870.9383836136562,
+          "ema(5)": 870.9360837158846
+        }
+      },
+      "fee": 0.0,
+      "feeExchange": 0.0,
+      "feeClearing": null,
+      "model": "paper-v2",
+      "realized": null
+    },
+    {
+      "orderId": "run-pioneer-w2-day-20261015-6",
+      "execNo": "run-pioneer-w2-day-20261015-6#1",
+      "time": 1792040544651,
+      "price": 869.35,
+      "quantity": 1,
+      "side": "buy",
+      "runId": "run-pioneer-w2-day-20261015",
+      "intent": "exit",
+      "reason": "take",
+      "virtual": true,
+      "snapshot": {
+        "barTime": 1792040460000,
+        "values": {
+          "close": 870.3,
+          "ema(20)": 870.9383836136562,
+          "ema(5)": 870.9360837158846
+        }
+      },
+      "fee": 0.0,
+      "feeExchange": 0.0,
+      "feeClearing": null,
+      "model": "paper-v2",
+      "realized": 199999.99999998862
+    }
+  ],
+  "events": [
+    {
+      "time": 1792039834029,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "검증 실행을 세웠습니다"
+    },
+    {
+      "time": 1792039834030,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "ready",
+      "text": "준비 봉 조회 1099줄 — 새 봉 1099개(지금 1099개)"
+    },
+    {
+      "time": 1792039872679,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "signal",
+      "text": "매도 진입 규칙이 걸렸습니다"
+    },
+    {
+      "time": 1792039872679,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "진입 주문 중"
+    },
+    {
+      "time": 1792039872679,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "order",
+      "text": "sell 1계약 시장가 시장가"
+    },
+    {
+      "time": 1792039873128,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "fill",
+      "text": "1계약 869.9 체결"
+    },
+    {
+      "time": 1792039873128,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "보유 중"
+    },
+    {
+      "time": 1792039874000,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "청산 요청"
+    },
+    {
+      "time": 1792039874000,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "order",
+      "text": "손절 — buy 1계약 시장가 전량"
+    },
+    {
+      "time": 1792039874393,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "fill",
+      "text": "1계약 870.35 체결"
+    },
+    {
+      "time": 1792039874393,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "감시 중"
+    },
+    {
+      "time": 1792039933858,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "signal",
+      "text": "매수 진입 규칙이 걸렸습니다"
+    },
+    {
+      "time": 1792039933858,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "진입 주문 중"
+    },
+    {
+      "time": 1792039933858,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "order",
+      "text": "buy 1계약 시장가 시장가"
+    },
+    {
+      "time": 1792039934179,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "fill",
+      "text": "1계약 871.45 체결"
+    },
+    {
+      "time": 1792039934179,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "보유 중"
+    },
+    {
+      "time": 1792039995250,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "청산 요청"
+    },
+    {
+      "time": 1792039995250,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "order",
+      "text": "손절 — sell 1계약 시장가 전량"
+    },
+    {
+      "time": 1792039995568,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "fill",
+      "text": "1계약 870.95 체결"
+    },
+    {
+      "time": 1792039995568,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "감시 중"
+    },
+    {
+      "time": 1792040532811,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "signal",
+      "text": "매도 진입 규칙이 걸렸습니다"
+    },
+    {
+      "time": 1792040532811,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "진입 주문 중"
+    },
+    {
+      "time": 1792040532811,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "order",
+      "text": "sell 1계약 시장가 시장가"
+    },
+    {
+      "time": 1792040533233,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "fill",
+      "text": "1계약 870.15 체결"
+    },
+    {
+      "time": 1792040533233,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "보유 중"
+    },
+    {
+      "time": 1792040544277,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "청산 요청"
+    },
+    {
+      "time": 1792040544277,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "order",
+      "text": "익절 — buy 1계약 시장가 전량"
+    },
+    {
+      "time": 1792040544651,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "fill",
+      "text": "1계약 869.35 체결"
+    },
+    {
+      "time": 1792040544651,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "감시 중"
+    },
+    {
+      "time": 1792044212789,
+      "runId": "run-pioneer-w2-day-20261015",
+      "kind": "state",
+      "text": "실행을 끝냈습니다"
+    }
+  ],
+  "openOrders": [],
+  "curve": [
+    {
+      "time": 1792039800000,
+      "equity": 100000000.0
+    },
+    {
+      "time": 1792039860000,
+      "equity": 99887499.99999999
+    },
+    {
+      "time": 1792039920000,
+      "equity": 99862499.99999999
+    },
+    {
+      "time": 1792039980000,
+      "equity": 99762499.99999999
+    },
+    {
+      "time": 1792040040000,
+      "equity": 99762499.99999999
+    },
+    {
+      "time": 1792040100000,
+      "equity": 99762499.99999999
+    },
+    {
+      "time": 1792040160000,
+      "equity": 99762499.99999999
+    },
+    {
+      "time": 1792040220000,
+      "equity": 99762499.99999999
+    },
+    {
+      "time": 1792040280000,
+      "equity": 99762499.99999999
+    },
+    {
+      "time": 1792040340000,
+      "equity": 99762499.99999999
+    },
+    {
+      "time": 1792040400000,
+      "equity": 99762499.99999999
+    },
+    {
+      "time": 1792040460000,
+      "equity": 99762499.99999999
+    },
+    {
+      "time": 1792040520000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792040580000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792040640000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792040700000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792040760000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792040820000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792040880000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792040940000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041000000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041060000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041120000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041180000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041240000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041300000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041360000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041420000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041480000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041540000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041600000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041660000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041720000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041780000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041840000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041900000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792041960000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042020000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042080000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042140000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042200000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042260000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042320000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042380000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042440000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042500000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042560000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042620000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042680000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042740000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042800000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042860000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042920000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792042980000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043040000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043100000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043160000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043220000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043280000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043340000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043400000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043460000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043520000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043580000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043640000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043700000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043760000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043820000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043880000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792043940000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792044000000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792044060000,
+      "equity": 99962499.99999997
+    },
+    {
+      "time": 1792044120000,
+      "equity": 99962499.99999997
+    }
+  ],
+  "trades": [
+    {
+      "openedAt": 1792039873128,
+      "closedAt": 1792039874393,
+      "side": "sell",
+      "quantity": 1,
+      "avgEntry": 869.9,
+      "avgExit": 870.35,
+      "grossPl": -112500.00000001137,
+      "fee": 0.0,
+      "netPl": -112500.00000001137,
+      "model": "paper-v2"
+    },
+    {
+      "openedAt": 1792039934179,
+      "closedAt": 1792039995568,
+      "side": "buy",
+      "quantity": 1,
+      "avgEntry": 871.45,
+      "avgExit": 870.95,
+      "grossPl": -125000.0,
+      "fee": 0.0,
+      "netPl": -125000.0,
+      "model": "paper-v2"
+    },
+    {
+      "openedAt": 1792040533233,
+      "closedAt": 1792040544651,
+      "side": "sell",
+      "quantity": 1,
+      "avgEntry": 870.15,
+      "avgExit": 869.35,
+      "grossPl": 199999.99999998862,
+      "fee": 0.0,
+      "netPl": 199999.99999998862,
+      "model": "paper-v2"
+    }
+  ]
+}
