@@ -18,12 +18,12 @@
 손익은 파일에 적힌 값(``netPl``·``grossPl``·``fee``, 백테스트는 ``pl``)만 씁니다.
 여기서 손익을 다시 셈하지 않습니다. 합계·최대 낙폭은 그 값들을 더해서 냅니다.
 
-실행 예::
+결과 표는 표준 출력으로 냅니다. ``--out`` 을 주면 그 파일(Markdown)로도 씁니다.
 
-    python src/summarize_journal.py --journal %USERPROFILE%/NHFutures/state/strategy-trades.jsonl \\
-        --run run-pioneer-w2-day-20261015 --out results/주간실행_요약.md
-    python src/summarize_journal.py --backtest results/backtest_all_20261015_135033.json \\
-        --out results/백테스트_요약.md
+실행 예 (``week02/`` 폴더에서)::
+
+    python summarize_journal.py --journal %USERPROFILE%/NHFutures/state/strategy-trades.jsonl --run run-pioneer-w2-day-20261015
+    python summarize_journal.py --backtest results/backtest_all_20261015_135033.json
 """
 from __future__ import annotations
 
@@ -297,7 +297,7 @@ def journal_markdown(rows: list[dict[str, Any]], run_ids: list[str], journal: Pa
     out.append("")
     out.append(f"> 상태: **{status}**")
     out.append("")
-    out.append("이 문서는 `src/summarize_journal.py` 가 앱의 실행 기록 파일에서 만든 것입니다.")
+    out.append("이 문서는 `summarize_journal.py` 가 앱의 실행 기록 파일에서 만든 것입니다.")
     out.append("손익은 기록에 적힌 `grossPl`·`fee`·`netPl` 을 그대로 옮기고 더하기만 했습니다.")
     out.append("표의 금액은 원 단위로 반올림해 표시하며, 합계는 반올림 전 값을 더한 뒤 반올림합니다.")
     out.append("")
@@ -455,7 +455,7 @@ def backtest_markdown(data: dict[str, Any], source: Path) -> str:
     out: list[str] = []
     out.append("# 백테스트 요약")
     out.append("")
-    out.append("이 문서는 `src/summarize_journal.py --backtest` 가 앱의 백테스트 답 JSON 에서 만든 것입니다.")
+    out.append("이 문서는 `summarize_journal.py --backtest` 가 앱의 백테스트 답 JSON 에서 만든 것입니다.")
     out.append("백테스트는 지난 1분봉에 규칙을 대 본 계산이며 주문을 내지 않습니다.")
     out.append("손익은 JSON 의 `pl`·`grossPl`·`fee` 를 그대로 옮겼고, 표의 금액은 원 단위로 반올림해 표시합니다.")
     out.append("")
@@ -543,7 +543,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--journal", type=Path, help="실행 기록 파일 (strategy-trades.jsonl) 경로")
     parser.add_argument("--run", action="append", default=[], help="요약할 실행 id. 여러 번 줄 수 있습니다")
     parser.add_argument("--backtest", type=Path, help="백테스트 답 JSON 경로")
-    parser.add_argument("--out", type=Path, required=True, help="출력 Markdown 경로")
+    parser.add_argument("--out", type=Path, help="결과를 Markdown 파일로도 쓸 경로 (선택 — 없으면 표준 출력만)")
     parser.add_argument("--status", help="요약 맨 위 상태 문구 (기본: 진행 중 표시)")
     args = parser.parse_args(argv)
 
@@ -553,14 +553,17 @@ def main(argv: list[str] | None = None) -> int:
     elif args.journal and args.run:
         rows = read_journal(args.journal, set(args.run))
         text = journal_markdown(rows, args.run, args.journal, args.status)
-        print(f"{len(rows)}줄을 읽었습니다 ({', '.join(args.run)})")
+        print(f"{len(rows)}줄을 읽었습니다 ({', '.join(args.run)})", file=sys.stderr)
     else:
         parser.error("--journal 과 --run, 또는 --backtest 중 하나가 필요합니다")
         return 2
 
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(text, encoding="utf-8")
-    print(f"썼습니다: {args.out}")
+    # 표는 표준 출력으로 냅니다. 안내 글은 표와 섞이지 않게 표준 오류로 보냅니다.
+    print(text)
+    if args.out:
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        args.out.write_text(text, encoding="utf-8")
+        print(f"썼습니다: {args.out}", file=sys.stderr)
     return 0
 
 
