@@ -53,7 +53,7 @@
 
 ### 2-1. 앱 설치
 
-[NH FUTURES API](https://github.com/NHFutures-OpenAPI/nh-futures-open-api) 저장소의 설치 안내를 따라 설치하고, 국내 APP Key·Secret Key 를 앱 설정 화면에 입력합니다.
+[NH FUTURES API](https://github.com/PetterChanHyuk/nh-futures-open-api) 저장소의 설치 안내를 따라 설치하고, 국내 APP Key·Secret Key 를 앱 설정 화면에 입력합니다.
 전략 판정·종이 체결·백테스트는 이 앱의 전략주문 탭이 수행합니다.
 
 ### 2-2. 전략 재현

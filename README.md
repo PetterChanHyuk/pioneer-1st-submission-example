@@ -50,7 +50,7 @@ weekNN/
 ## 참고
 
 - [NH선물 REST API 개발자센터](https://apidev.futures.co.kr/)
-- [NH선물 Open API 프로그램 (공개 저장소)](https://github.com/NHFutures-OpenAPI/nh-futures-open-api)
+- [NH선물 Open API 프로그램 (공개 저장소)](https://github.com/PetterChanHyuk/nh-futures-open-api)
 - [이 예시 저장소](https://github.com/PetterChanHyuk/pioneer-1st-submission-example)
 
 이 저장소는 제출 형식 예시입니다. 세부 과제·평가·접근 권한은 운영진 공지를 기준으로 합니다.
